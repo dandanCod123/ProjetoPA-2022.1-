@@ -2,11 +2,16 @@ import React from "react";
 import TextStyled from "../../components/Text/TextStyled";
 import TextH1 from "../../components/TextH1/TextH1";
 import * as S from "./styles";
-
+import { useNavigate } from "react-router-dom";
 import LogoStyled from "../../components/Logo/Logo";
 import ButtonStyled from "../../components/Button/Button";
 
 const Home = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/upload");
+  };
+
   return (
     <S.Container>
       {" "}
@@ -16,7 +21,7 @@ const Home = () => {
         <TextStyled txt={"Object detection"}></TextStyled>
         <TextStyled txt={"and recognition"}></TextStyled>
         <LogoStyled></LogoStyled>
-        <ButtonStyled text={"Start"}></ButtonStyled>
+        <ButtonStyled text={"Start"} onClick={handleClick}></ButtonStyled>
       </S.Column>{" "}
     </S.Container>
   );
