@@ -5,6 +5,7 @@ export const HelpButton = styled.button`
   height: 100px;
   margin-top: 40px;
   border-radius: 100px;
+  margin-left: 300%;
   font-size: 48px;
   background-color: transparent;
   border-color: white;
