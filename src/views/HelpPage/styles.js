@@ -20,6 +20,10 @@ export const Column = styled.div`
 
 export const ContainerDiv = styled.div`
 margin-top: 60px;
+font-size: 22px;
+font-weight: bold;
+font-family: 'Inter';
+
 height: 60%;
 width: 80%;
 border: 5px solid;

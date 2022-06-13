@@ -10,9 +10,30 @@ export const Container = styled.div`
 `;
 
 export const Column = styled.div`
+  width: 100vw;
+
   margin-top: 100px;
   flex-direction: column;
   display: flex;
   align-items: center;
   color: white;
+`;
+
+export const ContainerDiv = styled.div`
+  height: 80%;
+  width: 81%;
+  border: 5px solid;
+  border-color: white;
+
+`;
+
+export const Row = styled.div`
+ 
+  justify-content: space-between;
+  display: flex;
+
+  button {
+    margin-right: 70px;
+    margin-left: 70px;
+  }
 `;
