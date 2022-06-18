@@ -64,11 +64,15 @@ def download_result():
     newphoto = b64hell()
     result_str = str(img_to_b64(res_img).decode('utf-8'))
     newphoto.b64img = result_str
+    
+    with open('exit.txt', 'w') as f2:
+        f2.write(result_str)
+    
     return newphoto
 
 # =============================================================================
 
 
 # uvicorn main:app --reload
-if __name__ == "__main__":
-    uvicorn.run("main:app", host="1.1.1.1", port=8000, log_level="info")
+# if __name__ == "__main__":
+#     uvicorn.run("main:app", host="1.1.1.1", port=8000, log_level="info")
