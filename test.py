@@ -13,13 +13,13 @@ from PIL import Image
 from io import BytesIO
 
 # =============================================================================
-model_path = 'models/coco/model.tflite'
-labels_path = 'models/coco/labelmap.txt'
+model_path = 'models/yolo/model.tflite'
+labels_path = 'models/yolo/obj.names'
 
 
 mask = msk.classifier(model_path, labels_path)
 
-img = cv2.imread('221340M_1920x1080.webp')
+img = cv2.imread('plate.jpeg')
 
 def img_to_b64(img):
     _, im_arr = cv2.imencode('.png', img)  
@@ -33,12 +33,12 @@ def b64_to_img(im_b64):
     img = cv2.imdecode(im_arr, flags=cv2.IMREAD_COLOR)
     return img
 
-with open('64img.txt', 'r') as f:
-    string = f.read()
+# with open('64img.txt', 'r') as f:
+#     string = f.read()
 
-res_img = mask.classify(b64_to_img(string))
+res_img = mask.classify(b64_to_img(img_to_b64(img)))
 
-cv2.imwrite('result2.png', res_img)
+cv2.imwrite('plateres.png', res_img)
 
 with open('exit.txt', 'w') as f2:
     f2.write(str(img_to_b64(res_img).decode('utf-8')))

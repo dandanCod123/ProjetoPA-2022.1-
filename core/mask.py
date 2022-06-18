@@ -52,7 +52,7 @@ class classifier():
                         "scores": scores,
                         "num": num}
         self.classified = True
-        self.get_labels()
+        #self.get_labels()
         return self.mark_bbox(img, threshold)
 
     def get_labels(self):

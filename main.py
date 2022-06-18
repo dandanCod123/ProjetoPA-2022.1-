@@ -1,9 +1,12 @@
 import base64
 from hashlib import sha1
 from logging import captureWarnings
-# from pydantic import BaseModel
+from pydantic import BaseModel
 from fastapi import FastAPI
 import uvicorn
+
+import numpy as np
+import cv2
 
 from core import mask as msk
 import base64
@@ -28,6 +31,9 @@ img = None
 img_b64 = None
 
 # =============================================================================
+class b64hell(BaseModel):
+    b64img : str = None
+
 
 def img_to_b64(img):
     _, im_arr = cv2.imencode('.png', img)  
@@ -44,9 +50,9 @@ def b64_to_img(im_b64):
 # =============================================================================
 
 @app.post("/upload")
-def upload_photo(photo: str):
+def upload_photo(photo: b64hell):
     global img
-    img = b64_to_img(photo)
+    img = b64_to_img(photo.b64img)
 
 
 @app.get("/mask")
@@ -55,8 +61,10 @@ def download_result():
     global img_b64
     res_img = mask.classify(img)
     
+    newphoto = b64hell()
     result_str = str(img_to_b64(res_img).decode('utf-8'))
-    return {"encoded image": result_str}
+    newphoto.b64img = result_str
+    return newphoto
 
 # =============================================================================
 
