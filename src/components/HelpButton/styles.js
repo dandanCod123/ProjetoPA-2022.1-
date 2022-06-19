@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const HelpButton = styled.button`
   width: 100px;
   height: 100px;
-  margin-top: 40px;
+  margin-top: 50%;
   border-radius: 100px;
-  margin-left: 300%;
+  margin-left: 400%;
   font-size: 48px;
   background-color: transparent;
   border-color: white;

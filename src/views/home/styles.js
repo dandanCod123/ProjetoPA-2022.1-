@@ -16,3 +16,7 @@ export const Column = styled.div`
   align-items: center;
   color: white;
 `;
+
+export const Align = styled.div`
+  padding-top: 100px;
+`;

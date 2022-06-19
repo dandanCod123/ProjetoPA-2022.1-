@@ -21,7 +21,9 @@ const Home = () => {
         <TextStyled txt={"Object detection"}></TextStyled>
         <TextStyled txt={"and recognition"}></TextStyled>
         <LogoStyled></LogoStyled>
-        <ButtonStyled text={"Start"} onClick={handleClick}></ButtonStyled>
+        <S.Align>
+          <ButtonStyled text={"Start"} onClick={handleClick}></ButtonStyled>
+        </S.Align>
       </S.Column>{" "}
     </S.Container>
   );

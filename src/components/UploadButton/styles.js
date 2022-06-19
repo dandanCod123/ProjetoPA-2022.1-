@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import "@fontsource/inter";
 
 export const UploadButton = styled.button`
   width: 360px;

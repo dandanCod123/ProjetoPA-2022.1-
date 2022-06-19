@@ -21,14 +21,16 @@ export const Column = styled.div`
 
 export const ContainerDiv = styled.div`
   height: 80%;
-  width: 81%;
+  width: 80%;
   border: 5px solid;
-  border-color: white;
+  align-items: center;
+  justify-content: center;
 
+  display: flex;
+  border-color: white;
 `;
 
 export const Row = styled.div`
- 
   justify-content: space-between;
   display: flex;
 

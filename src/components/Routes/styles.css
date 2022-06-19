@@ -1,0 +1,17 @@
+html{
+    background:  #081f3e;
+}
+
+.transition-enter{
+    transform: translateX(100vw);
+
+    z-index: 1;
+
+}
+
+.transition-enter.transition-enter-active{
+
+    transform: translateX(0vw);
+    transition: transform 500ms  ease-in;
+}
+
