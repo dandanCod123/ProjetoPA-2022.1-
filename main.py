@@ -3,6 +3,7 @@ from hashlib import sha1
 from logging import captureWarnings
 from pydantic import BaseModel
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
 import numpy as np
@@ -19,6 +20,21 @@ API for applying COCO/Yolo object recognition on a photo
 app = FastAPI(title="YOLO API",
               description=description,
               version="1.0.0")
+
+origins = [
+    "http://localhost.tiangolo.com",
+    "https://localhost.tiangolo.com",
+    "http://localhost",
+    "http://localhost:8080",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # =============================================================================
 model_path = 'models/coco/model.tflite'
