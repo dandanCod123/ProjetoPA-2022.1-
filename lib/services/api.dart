@@ -1,18 +1,28 @@
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
-import 'package:yolodetec/models/photo.dart';
 
-class ComputationalVisionApi {
-  Future<List<Photo>> fetchImage() async {
-    var response = await http
-        .get(Uri.http('https://jsonplaceholder.typicode.com', 'todos'));
+Future<http.Response> sendImage(String photo) {
+  return http.post(
+    Uri.parse('http://10.110.1.244:8000/upload'),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+    body: jsonEncode(<String, String>{
+      'b64img': photo,
+    }),
+  );
+}
 
-    if (response.statusCode == 200) {
-      return List<Photo>.from(
-          json.decode(response.body).map((x) => Photo.fromJson(x)));
-    } else {
-      throw Exception("Failed");
-    }
+Future<dynamic> receiveImage() async {
+  var response = await http.get(
+    Uri.parse('http://10.110.1.244:8000/mask'),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+  );
+  if (response.statusCode == 200) {
+    return jsonDecode(response.body);
+  } else {
+    throw Exception('Failed to load');
   }
 }

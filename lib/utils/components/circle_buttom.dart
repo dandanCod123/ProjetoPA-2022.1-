@@ -4,9 +4,8 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-// import 'package:provider/provider.dart';
-// import 'package:yolodetec/services/api.dart';
-// import 'package:yolodetec/models/photo.dart';
+import 'package:yolodetec/screens/result_page.dart';
+import 'package:yolodetec/services/api.dart';
 
 class CircleButtom1 extends StatelessWidget {
   const CircleButtom1({super.key});
@@ -17,7 +16,14 @@ class CircleButtom1 extends StatelessWidget {
       File img = File(image!.path);
       List<int> imageBytes = await img.readAsBytes();
       String base64Image = base64Encode(imageBytes);
-      print(base64Image);
+      await sendImage(base64Image);
+      var seila = await receiveImage();
+      print(seila['b64img']);
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => ResultPage(seila: seila['b64img'])),
+      );
     }
 
     selectFromImagePicker() async {

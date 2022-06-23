@@ -50,7 +50,9 @@ class HelpPage extends StatelessWidget {
                     )),
                     child: const SingleChildScrollView(
                       child: Text(
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+                        "Bem vindo ao nosso Aplicativo de detecção e reconhecimento de objetos com Yolo. \n\n1. Tenha em sua galeria a imagem a qual você deseja que o aplicativo reconheça, \n\n2. Para começar: Clique no botão "
+                        '"+"'
+                        " para selecionar sua imagem partindo da galeria e enviá-la ao aplicativo, \n\n3. Você será direcionado à próxima tela na qual será processada a imagem e a devolverá com uma caixa delimitando o que foi detectado e reconhecido na imagem com seu devido nome.",
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 20,
